@@ -1,5 +1,7 @@
-const mongoose=requie('mongoose');
-const studentschema=new mongoose.schema({
+const mongoose=require('mongoose');
+const { v4: uuidv4 } = require('uuid'); 
+
+const studentschema=new mongoose.Schema({
     Id:String,
     Name:{
         type:String,
@@ -9,7 +11,7 @@ const studentschema=new mongoose.schema({
         type:String,
         required:true
     },
-    Class:{
+    Cls:{
         type:String,
         required:true
     },
@@ -19,4 +21,4 @@ const studentschema=new mongoose.schema({
     },
     
 })
-module.exports=mongoose.models("student",studentschema)
+module.exports=mongoose.model("student",studentschema)
