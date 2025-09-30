@@ -45,12 +45,19 @@ app.delete("/api/student/:id",async(req,res)=>{
         const resp=await student.findOneAndDelete({"Id":id})
         res.send(resp)
 })
-// app.get("/api/student/:Cls",async(req,res)=>{
-//     const cls=req.params.Cls;
-//     const resp=await student.find({"Cls":cls});
-//     res.send(resp)
+ app.get("/api/student/by/:cls",async(req,res)=>{
+     const cls=req.params.cls;
+     const resp=await student.find({Cls:cls});
+     res.send(resp)
 
-// })
+})
+app.get("/api/student/:id",async(req,res)=>{
+    const id=req.params.id;
+    const x=await student.find({Roll:id});
+    res.send(x)
+})
+
+
 //attandance part
 app.post("/api/attandance",async(req,res)=>{
     try{
